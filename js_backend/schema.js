@@ -1,7 +1,15 @@
 const { buildSchema } = require("graphql");
 const schema = buildSchema(`
 type Query {
-    allusers: [Users]
+    allusers: [User],
+    alltasks: [Task]
+}
+
+
+
+type Task{
+    taskdes: String
+    parentid: String
 }
 
 type User {

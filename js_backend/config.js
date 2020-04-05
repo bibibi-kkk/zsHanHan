@@ -5,5 +5,6 @@ module.exports = {
     appdb: process.env.DB,
     userscoll: process.env.USERSCOLL,
     port: process.env.PORT,
-    api: process.env.REQUEST
+    api: process.env.REQUEST,
+    taskscoll: process.env.TASKSCOLL
 };
