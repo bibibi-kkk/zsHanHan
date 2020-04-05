@@ -1,9 +1,9 @@
 const dbRtns = require("./dbroutines");
 const { userscoll } = require("./config");
 const resolvers = {
-  countries: async () => {
+  allusers: async () => {
     let db = await dbRtns.loadDB();
-    return await dbRtns.findAll(db, coll, {}, {});
+    return await dbRtns.findAll(db, userscoll, {}, {});
   },
   postuser: async args => {
     let db = await dbRtns.loadDB();

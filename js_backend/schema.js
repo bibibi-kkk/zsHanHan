@@ -1,17 +1,15 @@
 const { buildSchema } = require("graphql");
 const schema = buildSchema(`
 type Query {
-countries: [Country],
-    countrybycode(code: String): Country
-    countrybyname(name: String): Country
+    allusers: [Users]
 }
 
-type Country {
-   name: String
-   code: String
+type User {
+    nickname: String
+    password: String
 }
 type Mutation {
-    postcountry(name: String, code: String): Country
+    postuser(nickname: String, code: String) : User
     }
 `);
 module.exports = { schema };

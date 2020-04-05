@@ -40,7 +40,6 @@ module.exports = {
   deleteAll,
   findOne,
   findAll,
-  getJSONFromWWWPromise,
   updateOne,
   deleteOne
 };
