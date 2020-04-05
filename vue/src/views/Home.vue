@@ -9,39 +9,33 @@
         :defaultSelectedKeys="['2']"
         :style="{ lineHeight: '64px' }"
       >
-        <a-menu-item key="1">nav 1</a-menu-item>
-        <a-menu-item key="2">nav 2</a-menu-item>
-        <a-menu-item key="3">nav 3</a-menu-item>
+        <a-menu-item key="1">biubiubiu</a-menu-item>
+        <a-menu-item key="2">kkk</a-menu-item>
+        <a-menu-item key="3">heiheihei</a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout>
       <a-layout-sider width="200" style="background: #fff">
         <a-menu
           mode="inline"
-          :defaultSelectedKeys="['1']"
           :defaultOpenKeys="['sub1']"
           :style="{ height: '100%', borderRight: 0 }"
         >
           <a-sub-menu key="sub1">
-            <span slot="title"><a-icon type="user" />subnav 1</span>
-            <a-menu-item key="1">option1</a-menu-item>
-            <a-menu-item key="2">option2</a-menu-item>
-            <a-menu-item key="3">option3</a-menu-item>
-            <a-menu-item key="4">option4</a-menu-item>
+            <span slot="title"><a-icon type="user" />项目一</span>
+            <a-menu-item key="1" @click="toProject">周期1</a-menu-item>
+            <a-menu-item key="2">周期2</a-menu-item>
+            <a-menu-item key="3">周期3</a-menu-item>
+            <a-menu-item key="4">周期4</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub2">
-            <span slot="title"><a-icon type="laptop" />subnav 2</span>
-            <a-menu-item key="5">option5</a-menu-item>
-            <a-menu-item key="6">option6</a-menu-item>
-            <a-menu-item key="7">option7</a-menu-item>
-            <a-menu-item key="8">option8</a-menu-item>
+            <span slot="title"><a-icon type="laptop" />项目2</span>
+            <a-menu-item key="5">周期1</a-menu-item>
+            <a-menu-item key="6">周期2</a-menu-item>
+            <a-menu-item key="7">周期3</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub3">
-            <span slot="title"><a-icon type="notification" />subnav 3</span>
-            <a-menu-item key="9">option9</a-menu-item>
-            <a-menu-item key="10">option10</a-menu-item>
-            <a-menu-item key="11">option11</a-menu-item>
-            <a-menu-item key="12">option12</a-menu-item>
+            <span slot="title"><a-icon type="notification" />项目3</span>
           </a-sub-menu>
         </a-menu>
       </a-layout-sider>
@@ -54,7 +48,7 @@
         <a-layout-content
           :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
         >
-          Content
+          <router-view/>
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -68,6 +62,11 @@
 export default {
   name: 'Home',
   components: {
+  },
+  methods: {
+    toProject () {
+      this.$router.push('/project')
+    }
   }
 }
 </script>
