@@ -13,6 +13,12 @@
         <a-menu-item key="2">member2</a-menu-item>
         <a-menu-item key="3">member3</a-menu-item>
       </a-menu>
+      <div class="user">
+        <div class="head">
+          <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586162493767&di=250797a35e25f6c098adc61a4fc6a856&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F1e2e62e6f57458ca32394a10211a9616498d25bd5459-K2uzdk_fw658" alt="">
+        </div>
+        <div class="username">bibi</div>
+      </div>
     </a-layout-header>
     <a-layout>
       <a-layout-sider width="200" style="background: #fff">
@@ -23,27 +29,35 @@
           :style="{ height: '100%', borderRight: 0 }"
         >
           <a-sub-menu key="project1">
-            <span slot="title"><a-icon type="user" />项目一</span>
-            <a-menu-item key="system1" @click="toProject">周期1</a-menu-item>
-            <a-menu-item key="system2">周期2</a-menu-item>
-            <a-menu-item key="system3">周期3</a-menu-item>
-            <a-menu-item key="system4">周期4</a-menu-item>
+            <span slot="title"><a-icon type="user" />Project01</span>
+            <a-menu-item key="Project01 Sprit1" @click="toProject">Sprit1</a-menu-item>
+            <a-menu-item key="Project01 Sprit2">Sprit2</a-menu-item>
+            <a-menu-item key="Project01 Sprit3">Sprit3</a-menu-item>
+            <a-menu-item key="Project01 Sprit4">Sprit4</a-menu-item>
           </a-sub-menu>
-          <a-sub-menu key="sub2">
-            <span slot="title"><a-icon type="laptop" />Project02</span>
-            <a-menu-item key="5">Sprit1</a-menu-item>
-            <a-menu-item key="6">Sprit2</a-menu-item>
-            <a-menu-item key="7">Sprit3</a-menu-item>
+          <a-sub-menu key="project2">
+            <span slot="title"><a-icon type="user" />Project02</span>
+            <a-menu-item key="Project02 Sprit1" @click="toProject">Sprit1</a-menu-item>
+            <a-menu-item key="Project02 Sprit2">Sprit2</a-menu-item>
+            <a-menu-item key="Project02 Sprit3">Sprit3</a-menu-item>
+            <a-menu-item key="Project02 Sprit4">Sprit4</a-menu-item>
           </a-sub-menu>
-          <a-sub-menu key="sub3">
-            <span slot="title"><a-icon type="notification" />Project03</span>
+          <a-sub-menu key="project3">
+            <span slot="title"><a-icon type="user" />Project03</span>
+            <a-menu-item key="Project03 Sprit1" @click="toProject">Sprit1</a-menu-item>
+            <a-menu-item key="Project03 Sprit2">Sprit2</a-menu-item>
+            <a-menu-item key="Project03 Sprit3">Sprit3</a-menu-item>
+            <a-menu-item key="Project03 Sprit4">Sprit4</a-menu-item>
           </a-sub-menu>
         </a-menu>
       </a-layout-sider>
       <a-layout style="padding: 0 24px 24px">
-        <a-breadcrumb style="margin: 16px 0">
+        <a-breadcrumb style="margin: 16px 0" v-if="projectItem !== ''">
           <a-breadcrumb-item>my</a-breadcrumb-item>
-          <a-breadcrumb-item>{{projectItem}}</a-breadcrumb-item>
+            <a-breadcrumb-item>{{projectItem}}</a-breadcrumb-item>
+        </a-breadcrumb>
+        <a-breadcrumb style="margin: 16px 0" v-else>
+          <a-breadcrumb-item>my</a-breadcrumb-item>
         </a-breadcrumb>
         <a-layout-content
           :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
@@ -73,6 +87,7 @@ export default {
       this.$router.push('/project')
     },
     handleClick (val) {
+      this.projectItem = val.key
       console.log(val)
     }
   }
@@ -83,6 +98,14 @@ export default {
 .home {
   width: 100%;
   height: 100%;
+  .header {
+    .user {
+      float: right;
+    }
+  }
+  .index {
+    display: inline-block;
+  }
 }
   #components-layout-demo-top-side-2 {
     width: 100%;

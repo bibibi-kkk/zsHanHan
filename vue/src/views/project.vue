@@ -1,7 +1,7 @@
 <template>
   <div class="project">
     <div class="title">项目一</div>
-    <a-collapse v-model="activeKey" class="subtitle">
+    <a-collapse class="subtitle">
       <a-collapse-panel header="周期1" key="1">
         <p>嘚嘚嘚</p>
       </a-collapse-panel>
