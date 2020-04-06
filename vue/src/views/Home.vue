@@ -9,9 +9,9 @@
         :defaultSelectedKeys="['2']"
         :style="{ lineHeight: '64px' }"
       >
-        <a-menu-item key="1">biubiubiu</a-menu-item>
-        <a-menu-item key="2">kkk</a-menu-item>
-        <a-menu-item key="3">heiheihei</a-menu-item>
+        <a-menu-item key="1">member1</a-menu-item>
+        <a-menu-item key="2">member2</a-menu-item>
+        <a-menu-item key="3">member3</a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout>
@@ -22,20 +22,20 @@
           :style="{ height: '100%', borderRight: 0 }"
         >
           <a-sub-menu key="sub1">
-            <span slot="title"><a-icon type="user" />项目一</span>
-            <a-menu-item key="1" @click="toProject">周期1</a-menu-item>
-            <a-menu-item key="2">周期2</a-menu-item>
-            <a-menu-item key="3">周期3</a-menu-item>
-            <a-menu-item key="4">周期4</a-menu-item>
+            <span slot="title"><a-icon type="user" />Project01</span>
+            <a-menu-item key="1" @click="toProject">Sprit1</a-menu-item>
+            <a-menu-item key="2">Sprit2</a-menu-item>
+            <a-menu-item key="3">Sprit3</a-menu-item>
+            <a-menu-item key="4">Sprit4</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub2">
-            <span slot="title"><a-icon type="laptop" />项目2</span>
-            <a-menu-item key="5">周期1</a-menu-item>
-            <a-menu-item key="6">周期2</a-menu-item>
-            <a-menu-item key="7">周期3</a-menu-item>
+            <span slot="title"><a-icon type="laptop" />Project02</span>
+            <a-menu-item key="5">Sprit1</a-menu-item>
+            <a-menu-item key="6">Sprit2</a-menu-item>
+            <a-menu-item key="7">Sprit3</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub3">
-            <span slot="title"><a-icon type="notification" />项目3</span>
+            <span slot="title"><a-icon type="notification" />Project03</span>
           </a-sub-menu>
         </a-menu>
       </a-layout-sider>
