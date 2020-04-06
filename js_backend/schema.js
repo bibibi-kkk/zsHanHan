@@ -13,11 +13,15 @@ type Task{
 }
 
 type User {
+    _id: String
     nickname: String
     password: String
 }
 type Mutation {
-    postuser(nickname: String, code: String) : User
+    deleteuser(id: String) : String,
+    deletetask(id: String) : Task,
+    postuser(nickname: String, password: String) : User,
+    posttask(taskdes: String, parentid: String) : Task
     }
 `);
 module.exports = { schema };

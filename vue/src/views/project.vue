@@ -1,13 +1,13 @@
 <template>
   <div class="project">
-    <div class="title">项目一</div>
+    <div class="title">Project1</div>
     <a-collapse class="subtitle">
-      <a-collapse-panel header="周期1" key="1">
-        <p>嘚嘚嘚</p>
+      <a-collapse-panel header="Spirt1" key="1">
+        <p>testing task</p>
       </a-collapse-panel>
     </a-collapse>
     <div class="item">
-      <div class="tag">测试
+      <div class="tag">Testing
       </div>
       <a-list itemLayout="horizontal" :dataSource="data">
         <a-list-item slot="renderItem">

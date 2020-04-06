@@ -1,4 +1,5 @@
 const dbRtns = require("./dbroutines");
+var mongoose = require('mongoose');
 const { userscoll, taskscoll } = require("./config");
 const resolvers = {
   allusers: async () => {
@@ -8,6 +9,14 @@ const resolvers = {
   alltasks: async () => {
     let db = await dbRtns.loadDB();
     return await dbRtns.findAll(db, taskscoll, {}, {});
+  },
+  deleteuser: async args =>{
+    let db = await dbRtns.loadDB();
+    return await dbRtns.deleteOne(db, userscoll, {"_id" : mongoose.Types.ObjectId(args.id)});
+  },
+  deletetask: async args =>{
+    let db = await dbRtns.loadDB();
+    return await dbRtns.deleteOne(db, taskscoll, {"_id" : mongoose.Types.ObjectId(args.id)});
   },
   posttask: async args => {
     let db = await dbRtns.loadDB();
