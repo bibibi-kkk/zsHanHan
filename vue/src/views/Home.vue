@@ -17,16 +17,17 @@
     <a-layout>
       <a-layout-sider width="200" style="background: #fff">
         <a-menu
+          @click="handleClick"
           mode="inline"
-          :defaultOpenKeys="['sub1']"
+          :defaultOpenKeys="['project1']"
           :style="{ height: '100%', borderRight: 0 }"
         >
-          <a-sub-menu key="sub1">
+          <a-sub-menu key="project1">
             <span slot="title"><a-icon type="user" />项目一</span>
-            <a-menu-item key="1" @click="toProject">周期1</a-menu-item>
-            <a-menu-item key="2">周期2</a-menu-item>
-            <a-menu-item key="3">周期3</a-menu-item>
-            <a-menu-item key="4">周期4</a-menu-item>
+            <a-menu-item key="system1" @click="toProject">周期1</a-menu-item>
+            <a-menu-item key="system2">周期2</a-menu-item>
+            <a-menu-item key="system3">周期3</a-menu-item>
+            <a-menu-item key="system4">周期4</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub2">
             <span slot="title"><a-icon type="laptop" />项目2</span>
@@ -41,9 +42,8 @@
       </a-layout-sider>
       <a-layout style="padding: 0 24px 24px">
         <a-breadcrumb style="margin: 16px 0">
-          <a-breadcrumb-item>Home</a-breadcrumb-item>
-          <a-breadcrumb-item>List</a-breadcrumb-item>
-          <a-breadcrumb-item>App</a-breadcrumb-item>
+          <a-breadcrumb-item>my</a-breadcrumb-item>
+          <a-breadcrumb-item>{{projectItem}}</a-breadcrumb-item>
         </a-breadcrumb>
         <a-layout-content
           :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
@@ -61,11 +61,19 @@
 
 export default {
   name: 'Home',
+  data () {
+    return {
+      projectItem: ''
+    }
+  },
   components: {
   },
   methods: {
     toProject () {
       this.$router.push('/project')
+    },
+    handleClick (val) {
+      console.log(val)
     }
   }
 }
