@@ -1,5 +1,5 @@
 <template>
-  <a-result title="welcome，开始今日的工作吧!">
+  <a-result title="welcome，Let's start code">
     <template v-slot:icon>
       <a-icon type="smile" theme="twoTone" />
     </template>
