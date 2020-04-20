@@ -8,6 +8,7 @@ type Query {
 
 
 type Task{
+    _id: String
     taskdes: String
     parentid: String
 }

@@ -2,49 +2,49 @@
   <div class="login">
     <div class="box-login" :class="{ loginhide: !isLogin }">
       <div class="head"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586162493767&di=250797a35e25f6c098adc61a4fc6a856&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F1e2e62e6f57458ca32394a10211a9616498d25bd5459-K2uzdk_fw658" alt=""></div>
-      <div class="title">登录</div>
+      <div class="title">Log In</div>
       <div class="container">
         <div class="name">
-          <label for="">手机号</label>
-          <input type="text" placeholder="请输入手机号" v-model="objLogin.phoneNum">
+          <label for="">NickName</label>
+          <input type="text" placeholder="Enter NickName" v-model="objLogin.phoneNum">
         </div>
         <div class="password">
           <div class="top">
-            <label for="">密码</label>
-            <span>忘记密码？</span>
+            <label for="">PassWord</label>
+            <span>Forget your pwd?</span>
           </div>
-          <input type="password" placeholder="请输入密码" v-model="objLogin.password">
+          <input type="password" placeholder="Enter Password" v-model="objLogin.password">
         </div>
         <div class="tip">{{tip}}</div>
-        <div class="button" @click="login()">登录</div>
+        <div class="button" @click="login()">Log In</div>
       </div>
-      <div class="register">没有账号？
-        <div class="a" @click="toRegister()">立即注册</div>
+      <div class="register">Don't Have account yet?
+        <div class="a" @click="toRegister()">Register Now</div>
       </div>
     </div>
     <div class="box-register" :class="{ loginhide: isLogin }">
       <div class="head"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586162493767&di=250797a35e25f6c098adc61a4fc6a856&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F1e2e62e6f57458ca32394a10211a9616498d25bd5459-K2uzdk_fw658" alt=""></div>
-      <div class="title">注册</div>
+      <div class="title">Register</div>
       <div class="container">
         <div class="name">
-          <label for="">手机号</label>
-          <input type="text" placeholder="请输入手机号" v-model="objRegister.phoneNum">
+          <label for="">NickName</label>
+          <input type="text" placeholder="Enter NickName" v-model="objRegister.phoneNum">
         </div>
-        <div class="nikeName">
-          <label for="">昵称</label>
-          <input type="text" placeholder="请输入昵称" v-model="objRegister.nickName">
-        </div>
+        <!-- <div class="nikeName">
+          <label for="">NickName</label>
+          <input type="text" placeholder="E" v-model="objRegister.nickName">
+        </div> -->
         <div class="password">
           <div class="top">
-            <label for="">密码</label>
+            <label for="">Password</label>
           </div>
-          <input type="password" placeholder="请输入密码" v-model="objRegister.password">
+          <input type="password" placeholder="Enter PassWord" v-model="objRegister.password">
         </div>
         <div class="tip">{{ttip}}</div>
-        <div class="button" @click="register()">注册</div>
+        <div class="button" @click="registerNew()">Register</div>
       </div>
-      <div class="register">已有账号？
-        <div class="a" @click="toLogin()">立即登录</div>
+      <div class="register">Have account already?
+        <div class="a" @click="toLogin()">Log In Now</div>
       </div>
     </div>
   </div>
@@ -58,6 +58,7 @@ export default {
   },
   data () {
     return {
+      data: '',
       isLogin: true,
       tip: '',
       ttip: '',
@@ -75,17 +76,29 @@ export default {
   mounted () {
   },
   methods: {
+    async registerNew () {
+      const query = `mutation{postuser(nickname: "${this.objRegister.phoneNum}", password: "${this.objRegister.password}") { _id nickname password }}`
+      const response = await fetch('http://localhost:5000/teamssgapi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify({
+          query: query
+        })
+      })
+      this.data = await response.json()
+      console.log(this.data)
+    },
     login () {
-      this.tip = ''
-      if (!(/^1[3456789]\d{9}$/.test(this.objLogin.phoneNum))) {
-        this.tip = '请输入正确的手机号'
-        return
-      }
-      if (!(/^[\w]{6,12}$/.test(this.objLogin.password))) {
-        this.tip = '密码格式不正确'
-        return
-      }
-      this.$router.push('/home')
+      // this.tip = ''
+      // if (!(/^1[3456789]\d{9}$/.test(this.objLogin.phoneNum))) {
+      //   this.tip = '请输入正确的手机号'
+      //   return
+      // }
+      // if (!(/^[\w]{6,12}$/.test(this.objLogin.password))) {
+      //   this.tip = '密码格式不正确'
+      //   return
+      // }
+      this.$router.push('/my')
     },
     register () {
       this.ttip = ''
