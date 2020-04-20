@@ -9,4 +9,4 @@ const { schema } = require("./schema");
 app.use(cors());
 app.use(api, graphqlHTTP({ schema, rootValue: resolvers, graphiql: true }));
 app.listen(port);
-console.log(`Server ready on locahost:${port}${api}`);
+console.log(`Server ready on localhost:${port}${api}`);
